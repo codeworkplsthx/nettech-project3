@@ -1,0 +1,54 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyCompatibilityInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ourVersions">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="2.7" />
+            <item index="1" class="java.lang.String" itemvalue="3.7" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="5">
+            <item index="0" class="java.lang.String" itemvalue="polib" />
+            <item index="1" class="java.lang.String" itemvalue="wx" />
+            <item index="2" class="java.lang.String" itemvalue="mock" />
+            <item index="3" class="java.lang.String" itemvalue="py2exe" />
+            <item index="4" class="java.lang.String" itemvalue="twodict" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="WAIT_TIME" />
+          <option value="youtube_dl_gui.downloadmanager.DownloadList.append" />
+          <option value="youtube_dl_gui.downloadmanager.xrange" />
+          <option value="youtube_dl_gui.downloadmanager.basestring" />
+          <option value="youtube_dl_gui.downloadmanager.stats_dict" />
+          <option value="youtube_dl_gui.downloadmanager.value" />
+          <option value="ERROR_STAGES" />
+          <option value="COMPLETED_STAGES" />
+          <option value="ACTIVE_STAGES" />
+          <option value="STAGES" />
+          <option value="youtube_dl_gui.updatemanager.unicode" />
+          <option value="youtube_dl_gui.updatemanager.URLError" />
+          <option value="youtube_dl_gui.updatemanager.HTTPError" />
+          <option value="youtube_dl_gui.updatemanager.urlopen" />
+          <option value="DOWNLOAD_TIMEOUT" />
+          <option value="LATEST_YOUTUBE_DL" />
+          <option value="os.startfile" />
+          <option value="youtube_dl_gui.utils.unicode" />
+          <option value="str.decode" />
+          <option value="MAX_LOGSIZE" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

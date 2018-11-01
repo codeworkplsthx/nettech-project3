@@ -1,0 +1,6 @@
+www.google.com 147.333.2.1 A
+game.com 194.99.8.1 A
+www.butts.com 192.33.1.1 A
+www.pardidjfkd.com ERROR: HOST NOT FOUND
+www.zzz.net ERROR: HOST NOT FOUND
+www.cubed.org ERROR: HOST NOT FOUND

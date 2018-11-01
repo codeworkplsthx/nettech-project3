@@ -1,0 +1,4 @@
+mother4game.com 192.11.1.4 33124 A
+starstorm 127.0.0.1 65001 NS
+www.tcrf.net 194.99.8.1 32313 A
+www.butts.com 192.33.1.1 38849 A
