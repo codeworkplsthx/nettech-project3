@@ -24,17 +24,11 @@ def main():
             rs.connect((HOST, PORT))
             rs.sendall(str.encode(h, 'utf-8'))
             resp = DNSEntry.from_str(bytes.decode(rs.recv(1024), 'utf-8'))
-        if resp.qtype == 'NS': # connect to ts server if not found
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ts:
-                ts.connect((resp.ip, resp.port))
-                ts.sendall(str.encode(h, 'utf-8'))
-                resp = DNSEntry.from_str(bytes.decode(ts.recv(1024), 'utf-8'))
             if resp.qtype == '-':
                 buffer = buffer + str(h) + " " + "ERROR: HOST NOT FOUND\n"
             else:
                 buffer = buffer + str(h) + " " + str(resp.ip) + " " + str(resp.qtype) + "\n"
-        else:
-            buffer = buffer + str(h) + " " + str(resp.ip) + " " + str(resp.qtype) + "\n"
+
 
     with open("RESOLVED.txt", 'w') as file:
         file.write(buffer)

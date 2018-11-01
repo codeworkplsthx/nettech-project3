@@ -1,3 +1,2 @@
-www.google.com 147.333.2.1 38341 A
+www.on-com.com 147.333.2.1 38341 A
 game.com 194.99.8.1 32313 A
-www.cubed.com 33.22.11.1 32212 A

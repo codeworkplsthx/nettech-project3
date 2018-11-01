@@ -4,17 +4,17 @@ from table import Table
 
 # data
 HOST = ''
-PORT = 65001
+PORT = 65002
 
 ###
 
 
-# load shit from DNS table DNSRS.txt
-ts_table = Table('PROJ2-DNSCOM.txt')
+# load shit from DNS table DNSCOM.txt
+ts_table = Table('PROJ2-DNSEDU.txt')
 
 print("[S]: Server DNS table:", ts_table)
 
-# create portal for clients
+# create portal for clients (RS server)
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
     s.listen(PORT)
@@ -24,7 +24,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         if not conn:
             break
         else:
-            with conn:
+            with conn: # socket to client
                 print("[S]: Got a connection request from + " + str(conn) + " at " + str(addr))
                 while True:
                     data = conn.recv(1024)
