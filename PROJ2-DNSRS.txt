@@ -1,3 +1,3 @@
 www.on-rs.org 192.11.1.4 33124 A
-starstorm 127.0.0.1 65001 NS
-starstorm 127.0.0.1 65002 NS
+grep.cs.rutgers.edu 127.0.0.1 65001 NS
+factory.cs.rutgers.edu 127.0.0.1 65002 NS
