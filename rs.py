@@ -13,9 +13,9 @@ PORT = 65000
 
 
 def main():
-    com_hostname = socket.gethostbyname(sys.argv[1])
-    edu_hostname = socket.gethostbyname(sys.argv[2])
-    rs_table = Table(sys.argv[3])
+    com_hostname = socket.gethostbyname(sys.argv[2])
+    edu_hostname = socket.gethostbyname(sys.argv[3])
+    rs_table = Table(sys.argv[4])
 
     print("[S]: Server host name is: ", socket.gethostname())
     print("[S]: Server IP address is  ", socket.gethostbyname('localhost'))
