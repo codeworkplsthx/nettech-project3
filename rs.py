@@ -66,7 +66,7 @@ def main():
                                             if dns_entry.qtype == 'NS' and int(dns_entry.port) == 65001:
                                                 com_server = dns_entry
 
-                                        print("[S]: Connecting to  " + com_hostname)
+                                        print("[S]: Connecting to  " + socket.gethostbyaddr(com_hostname))
                                         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as com:
                                             try:
                                                 com.connect((com_hostname,65001))
