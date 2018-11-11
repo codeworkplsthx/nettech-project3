@@ -67,14 +67,17 @@ def main():
                                                 com_server = dns_entry
 
                                         print("[S]: Connecting to  " + repr(com_server))
-                                        try:
-                                            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as com:
+
+                                        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as com:
+                                            try:
                                                 com.connect((com_hostname,65001))
                                                 com.sendall(str.encode(data, 'utf-8'))
                                                 resp = com.recv(1024)
-                                                conn.sendall(resp)
-                                        except ConnectionRefusedError:
-                                            print("Can't connect to .com server")
+                                            except ConnectionRefusedError:
+                                                com.close()
+                                                print("Can't connect to com server")
+
+                                            conn.sendall(resp)
                                     elif ext == ".edu":
                                         print("[S]: Hostname has ext " + ext)
                                         for dns_entry in rs_table:
@@ -83,14 +86,16 @@ def main():
 
 
                                         print("[S]: Connecting to  " + repr(edu_server))
-                                        try:
-                                            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as edu:
+                                        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as edu:
+                                            edu = None
+                                            try:
                                                 edu.connect((edu_hostname,65002))
                                                 edu.sendall(str.encode(data, 'utf-8'))
                                                 resp = edu.recv(1024)
-                                                conn.sendall(resp)
-                                        except ConnectionRefusedError:
-                                            print("Can't connect to .edu server")
+                                            except ConnectionRefusedError:
+                                                edu.close()
+                                                print("Can't connect to edu server")
+                                            conn.sendall(resp)
                                     # case: hostname is not .com or .edu
                                     elif ext != ".com" and ext != ".edu":
 
