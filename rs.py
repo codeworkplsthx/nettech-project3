@@ -19,6 +19,7 @@ def main():
 
     print("[S]: Server host name is: ", socket.gethostname())
     print("[S]: Server IP address is  ", socket.gethostbyname('localhost'))
+    print("[S]: Listening on: ",PORT)
     print("[S]: Server DNS table:", rs_table)
 
     # create portal for clients
@@ -68,7 +69,7 @@ def main():
                                         print("[S]: Connecting to  " + repr(com_server))
                                         print(com_server)
                                         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as com:
-                                            com.connect(('',com_server.port))
+                                            com.connect((com_hostname,65001))
                                             com.sendall(str.encode(data, 'utf-8'))
                                             resp = com.recv(1024)
                                             conn.sendall(resp)
@@ -81,7 +82,7 @@ def main():
                                         print(edu_server)
                                         print("[S]: Connecting to  " + repr(edu_server))
                                         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as edu:
-                                            edu.connect(('',int(edu_server.port)))
+                                            edu.connect((edu_hostname,65002))
                                             edu.sendall(str.encode(data, 'utf-8'))
                                             resp = edu.recv(1024)
                                             conn.sendall(resp)

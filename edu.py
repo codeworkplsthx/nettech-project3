@@ -19,7 +19,7 @@ def main():
     ts_table = Table(sys.argv[1])
     print("[S]: Server host name is: ", socket.gethostname())
     print("[S]: Server IP address is  ", socket.gethostbyname('localhost'))
-
+    print("[S]: Listening on: ",PORT)
     print("[S]: Server DNS table:", ts_table)
 
     # create portal for clients (RS server)

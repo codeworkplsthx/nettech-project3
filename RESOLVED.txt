@@ -1,6 +1,0 @@
-www.on-com.com 147.333.2.1 A
-www.on-edu.edu 194.99.8.1 A
-www.not-on-edu.edu ERROR: HOST NOT FOUND
-www.not-on-com.com ERROR: HOST NOT FOUND
-www.on-rs.org 192.11.1.4 A
-www.not-on-rs.org ERROR: HOST NOT FOUND
