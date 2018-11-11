@@ -66,18 +66,19 @@ def main():
                                             if dns_entry.qtype == 'NS' and int(dns_entry.port) == 65001:
                                                 com_server = dns_entry
 
-                                        print("[S]: Connecting to  " + repr(com_server))
-
+                                        print("[S]: Connecting to  " + com_hostname)
                                         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as com:
                                             try:
                                                 com.connect((com_hostname,65001))
                                                 com.sendall(str.encode(data, 'utf-8'))
                                                 resp = com.recv(1024)
+                                                conn.sendall(resp)
                                             except ConnectionRefusedError:
                                                 com.close()
                                                 print("Can't connect to com server")
+                                                break
 
-                                            conn.sendall(resp)
+
                                     elif ext == ".edu":
                                         print("[S]: Hostname has ext " + ext)
                                         for dns_entry in rs_table:
@@ -85,20 +86,20 @@ def main():
                                                 edu_server = dns_entry
 
 
-                                        print("[S]: Connecting to  " + repr(edu_server))
+                                        print("[S]: Connecting to  " + edu_hostname)
                                         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as edu:
-                                            edu = None
                                             try:
                                                 edu.connect((edu_hostname,65002))
                                                 edu.sendall(str.encode(data, 'utf-8'))
                                                 resp = edu.recv(1024)
+                                                conn.sendall(resp)
                                             except ConnectionRefusedError:
                                                 edu.close()
                                                 print("Can't connect to edu server")
-                                            conn.sendall(resp)
+                                                break
+
                                     # case: hostname is not .com or .edu
                                     elif ext != ".com" and ext != ".edu":
-
                                         print("[S]: No match for " + data + " in DNS table...")
                                         with open("log.txt", 'w+') as file:
                                             file.writelines(data)
