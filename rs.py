@@ -67,25 +67,30 @@ def main():
                                                 com_server = dns_entry
 
                                         print("[S]: Connecting to  " + repr(com_server))
-                                        print(com_server)
-                                        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as com:
-                                            com.connect((com_hostname,65001))
-                                            com.sendall(str.encode(data, 'utf-8'))
-                                            resp = com.recv(1024)
-                                            conn.sendall(resp)
+                                        try:
+                                            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as com:
+                                                com.connect((com_hostname,65001))
+                                                com.sendall(str.encode(data, 'utf-8'))
+                                                resp = com.recv(1024)
+                                                conn.sendall(resp)
+                                        except ConnectionRefusedError:
+                                            print("Can't connect to .com server")
                                     elif ext == ".edu":
                                         print("[S]: Hostname has ext " + ext)
                                         for dns_entry in rs_table:
                                             if dns_entry.qtype == 'NS' and int(dns_entry.port) == 65002:
                                                 edu_server = dns_entry
 
-                                        print(edu_server)
+
                                         print("[S]: Connecting to  " + repr(edu_server))
-                                        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as edu:
-                                            edu.connect((edu_hostname,65002))
-                                            edu.sendall(str.encode(data, 'utf-8'))
-                                            resp = edu.recv(1024)
-                                            conn.sendall(resp)
+                                        try:
+                                            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as edu:
+                                                edu.connect((edu_hostname,65002))
+                                                edu.sendall(str.encode(data, 'utf-8'))
+                                                resp = edu.recv(1024)
+                                                conn.sendall(resp)
+                                        except ConnectionRefusedError:
+                                            print("Can't connect to .edu server")
                                     # case: hostname is not .com or .edu
                                     elif ext != ".com" and ext != ".edu":
 
